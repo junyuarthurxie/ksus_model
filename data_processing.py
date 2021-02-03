@@ -9,7 +9,8 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 def get_data(train_size, test_size):
     total_size = train_size + test_size
     if torch.cuda.is_available():
-        data, _ = mnist_reader.load_mnist('/content/', kind='train')
+        #data, _ = mnist_reader.load_mnist('/content/', kind='train')
+        data, _ = mnist_reader.load_mnist(dir_path + '/data/fashion', kind='train')
     else:
         data, _ = mnist_reader.load_mnist(dir_path + '/data/fashion', kind='train')
     data_demo = data[data.shape[0] - 1, :]
